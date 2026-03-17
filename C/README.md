@@ -14,7 +14,6 @@ The projects cover **fundamental and intermediate topics** in C programming incl
 ---
 
 ##  Featured Projects
-These projects demonstrate stronger understanding of core computer science concepts:
 
 - **AVL Fishdom Analysis**  
   AVL Tree implementation used to analyze fish population data while maintaining balanced search performance.
