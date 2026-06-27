@@ -6,17 +6,6 @@ This project is an **Eye Data Management System** written in **C**.
 
 The program reads eye-tracking records from a file and groups the records by username. Each user can have multiple eye measurement records. The data is stored using linked lists.
 
-This project was written as a C data structures exercise to practice:
-
-* Linked lists
-* Structs
-* Pointers
-* Dynamic memory allocation
-* File reading
-* Data validation
-* Case-insensitive search
-* Menu-driven programs
-
 ---
 
 ## Program Behavior
