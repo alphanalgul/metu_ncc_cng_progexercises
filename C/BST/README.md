@@ -2,148 +2,203 @@
 
 ## Description
 
-- This project implements an **Instructor Record Manager** using a **Binary Search Tree (BST)** in C.
-- The program stores each instructor together with their **academic title**.
-- Instructor names are used as the **search key** and are inserted into the tree in **lexicographical order**.
-- The program is menu-driven and allows the user to:
-  - initialize the tree
-  - insert new instructor records
-  - search for a specific instructor
-  - list instructors whose names begin with a specific character
-  - display the tree contents in sorted order
+This project is a simple **Instructor Record Manager** written in **C**.
+
+The program stores instructor names and academic titles using a **Binary Search Tree (BST)**. Instructor names are used as the search key, so the tree keeps records in lexicographical order.
+
+This project was written as a data structures exercise to practice:
+
+* Binary Search Trees
+* Structs
+* Pointers
+* Dynamic memory allocation
+* String comparison
+* Recursive tree traversal
+* Menu-driven console programs
 
 ---
 
 ## Program Behavior
 
-- The user interacts with the program through a console menu.
-- Each instructor record contains:
-  - instructor name
-  - title
-- When a new instructor is inserted:
-  - the program compares the name with existing nodes using `strcmp()`
-  - if the name is smaller, it goes to the left subtree
-  - if the name is greater, it goes to the right subtree
-- Because of this structure, an **in-order traversal** prints all instructors in **alphabetical order**.
+The user interacts with the program through a console menu.
+
+Each instructor record contains:
+
+* Instructor name
+* Instructor title
+
+When a new instructor is inserted:
+
+* If the instructor name is alphabetically smaller than the current node, it is inserted into the left subtree.
+* If the instructor name is alphabetically greater than the current node, it is inserted into the right subtree.
+
+Because of this structure, an in-order traversal displays instructor records in alphabetical order.
 
 ---
 
 ## Menu Options
 
-- `i`  
-  - Initializes the tree and makes it empty.
-
-- `n`  
-  - Inserts a new instructor record into the BST.
-  - User enters:
-    - instructor name
-    - instructor title
-
-- `t`  
-  - Searches for a specific instructor by full name.
-  - If found, the program prints the instructor’s title.
-  - If not found, it prints:
-    - `This instructor does not exist!`
-
-- `s`  
-  - Searches for all instructors whose names start with a given character.
-  - The program traverses the tree and prints all matching instructors.
-
-- `e`  
-  - Exits the program.
+| Command | Description                                                    |
+| ------- | -------------------------------------------------------------- |
+| `i`     | Initializes the tree and makes it empty                        |
+| `n`     | Inserts a new instructor record                                |
+| `t`     | Searches for an instructor by full name and displays the title |
+| `s`     | Lists instructors whose names start with a given character     |
+| `e`     | Exits the program                                              |
 
 ---
 
-## Sample Output
+## Features
 
-### Insert First Instructor
-
-**Command:** `n`
-
-| Input | Value |
-|------|------|
-| Instructor Name | JohnSmith |
-| Title | Professor |
-
-**Tree Now**
-
-| Instructor | Title |
-|-----------|------|
-| JohnSmith | Professor |
+* Insert instructor records into a Binary Search Tree
+* Search for an instructor by full name
+* Search instructors by first character
+* Display all instructor records in sorted order
+* Interactive console menu
+* Dynamic memory allocation for instructor names and titles
 
 ---
 
-### Insert Second Instructor
+## Data Structure Used
 
-**Command:** `n`
+The main data structure used in this project is a **Binary Search Tree**.
 
-| Input | Value |
-|------|------|
-| Instructor Name | AliceBrown |
-| Title | Lecturer |
+Each tree node stores:
 
-**Tree Now**
+```c
+struct TreeNode {
+    int val;
+    char *instructor;
+    char *title;
+    struct TreeNode* left;
+    struct TreeNode* right;
+};
+```
 
-| Instructor | Title |
-|-----------|------|
-| AliceBrown | Lecturer |
-| JohnSmith | Professor |
-
----
-
-### Insert Third Instructor
-
-**Command:** `n`
-
-| Input | Value |
-|------|------|
-| Instructor Name | MarkWhite |
-| Title | AssistantProfessor |
-
-**Tree Now**
-
-| Instructor | Title |
-|-----------|------|
-| AliceBrown | Lecturer |
-| JohnSmith | Professor |
-| MarkWhite | AssistantProfessor |
+The instructor name is used as the key for inserting and searching records.
 
 ---
 
-### Search Instructor Title
+## How to Run
 
-**Command:** `t`
+### Compile
 
-| Input | Value |
-|------|------|
-| Instructor Name | JohnSmith |
+```bash
+gcc TreeADT.c -o bst
+```
 
-**Result**
+### Run
 
-| Instructor | Title |
-|-----------|------|
-| JohnSmith | Professor |
+On Linux/macOS:
 
----
+```bash
+./bst
+```
 
-### Search Instructors by First Letter
+On Windows PowerShell:
 
-**Command:** `s`
-
-| Input | Value |
-|------|------|
-| First Character | M |
-
-**Matching Instructors**
-
-| Instructor | Title |
-|-----------|------|
-| MarkWhite | AssistantProfessor |
+```bash
+.\bst.exe
+```
 
 ---
 
-### Exit Program
+## Input Requirements
 
-**Command:** `e`
+No external input file is required.
+
+The program takes all input from the console.
+
+Important input note:
+
+* Do not use spaces inside instructor names.
+* Do not use spaces inside titles.
+
+For example, use:
+
+```text
+JohnSmith
+AssistantProfessor
+```
+
+instead of:
+
+```text
+John Smith
+Assistant Professor
+```
 
 ---
+
+## Example Usage
+
+```text
+Menu:
+ i)nitialize
+ n)ew element
+ t)instructor title
+ s)search instructor
+ e)xit
+Enter command:
+```
+
+### Insert an Instructor
+
+```text
+Enter command: n
+Enter instructors name: JohnSmith
+Enter his/her title: Professor
+```
+
+Output:
+
+```text
+Tree now:
+
+JohnSmith Professor
+```
+
+### Insert Another Instructor
+
+```text
+Enter command: n
+Enter instructors name: AliceBrown
+Enter his/her title: Lecturer
+```
+
+Output:
+
+```text
+Tree now:
+
+AliceBrown Lecturer
+JohnSmith Professor
+```
+
+### Search for an Instructor
+
+```text
+Enter command: t
+Enter instructors name: JohnSmith
+```
+
+Output:
+
+```text
+Professor
+```
+
+### Search by First Character
+
+```text
+Enter command: s
+Enter a character: A
+```
+
+Output:
+
+```text
+AliceBrown Lecturer
+```
+
+
