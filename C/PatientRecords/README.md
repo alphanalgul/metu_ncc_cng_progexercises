@@ -31,7 +31,7 @@ The program performs the following steps:
 
 ---
 
-## Data Structure Used
+## Data Structure
 
 Each patient is represented using a structure.
 
@@ -86,7 +86,7 @@ Example:
 
 ---
 
-## Field Meanings
+## Fields
 
 | Field         | Example    | Meaning                                      |
 | ------------- | ---------- | -------------------------------------------- |
