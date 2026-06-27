@@ -36,10 +36,7 @@ int populateData(char *filename,Data *records,int maxSize)
     char gender[50];
     int smoking;
     char cancer[50];
-    if(size<maxSize)
-    {
-        while (fscanf(file, "%d %s %s %s %d %s", &id, name, surname, gender, &smoking, cancer) != EOF) {
-
+     while (size < maxSize && fscanf(file, "%d %s %s %s %d %s", &id, name, surname, gender, &smoking, cancer) == 6) {
             records[size].id = id;
             strcpy(records[size].name, name);
             strcpy(records[size].surname, surname);
@@ -48,7 +45,6 @@ int populateData(char *filename,Data *records,int maxSize)
             strcpy(records[size].cancer, cancer);
             size++;
         }
-    }
     fclose(file);
     return size;
 }
