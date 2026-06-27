@@ -139,17 +139,6 @@ Future investment value: 468.75
 - The total number of seats should be an even number.
 - The program assumes that economy and business class have equal seat capacity.
 - The investment calculation uses a fixed annual return rate of 25%.
-- This project was written as a C programming exercise focusing on arrays, functions, recursion, and basic simulation logic.
 
 ---
 
-## Main Concepts Practiced
-
-- Arrays
-- Functions
-- Recursion
-- Conditional statements
-- Loops
-- User input
-- Basic simulation
-- Simple financial calculation
