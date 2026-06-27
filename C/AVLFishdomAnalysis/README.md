@@ -6,16 +6,6 @@ This project is a **Fishdom data analysis program** written in **C**.
 
 The program reads fish records from a CSV file and stores them in an **AVL tree**. The tree is ordered by fish weight, so the records can be displayed in sorted order efficiently.
 
-This was written as a data structures exercise to practice:
-
-- AVL trees
-- Tree rotations
-- Dynamic memory allocation
-- File reading
-- Structs
-- Command-line arguments
-- Menu-driven programs
-
 ---
 
 ## Program Behavior
