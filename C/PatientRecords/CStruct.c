@@ -30,7 +30,7 @@ int main() {
     Hospital *PersonTable = NULL;
     char line[256];
     int count = 0;
-    while(fgets(line,sizeof(Hospital),file)){
+    while(fgets(line,sizeof(line),file)){
         if(line[strlen(line)-1] == '\n'){
             line[strlen(line)-1] = '\0';
         }
