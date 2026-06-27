@@ -8,16 +8,6 @@ The game is played between the user and the computer on a **10×10 board**. Only
 
 The game also includes trap locations. If a player lands on a trap, they move backward according to the trap value.
 
-This project was written as a C programming exercise to practice:
-
-* 2D arrays
-* Dynamic memory allocation
-* Pointers
-* Functions
-* Random number generation
-* Input validation
-* Console-based game logic
-
 ---
 
 ## Game Rules
