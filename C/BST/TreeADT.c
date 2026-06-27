@@ -26,7 +26,7 @@ struct TreeNode
 struct TreeNode* CreateTree(void);
 struct TreeNode* Insert(int,char *,char *,struct TreeNode*);
 char *searchInstructor(char instructor[],struct TreeNode *t);
-void searchInstructors(char *c,struct TreeNode *t,int size);
+void searchInstructors(char *c,struct TreeNode *t);
 void DisplayTree(struct TreeNode*);
 
 int main()
@@ -38,7 +38,6 @@ int main()
     char *title= (char *) malloc(sizeof(char)*100);
     char command='\n';
     char *c=(char *) malloc(sizeof(char)*100);
-    int size=0;
     myTree = CreateTree();
     exit = FALSE;
     while (!exit)
@@ -61,7 +60,6 @@ int main()
                 printf("\nEnter his/her title:");
                 scanf("%s",title);
                 myTree = Insert(val, instructor,title, myTree);
-                size++;
                 printf("Tree now:\n");
                 DisplayTree(myTree);
                 break;
@@ -82,7 +80,7 @@ int main()
             case 's':
                 printf("\nEnter a character:");
                 scanf("%s",c);
-                searchInstructors(c,myTree,size);
+                searchInstructors(c,myTree);
                 break;
             case 'e':
                 exit = TRUE;
