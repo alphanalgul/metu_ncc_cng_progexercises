@@ -1,40 +1,175 @@
-# Circle Game (C)
+# Circle Game
 
-A console-based board game written in **C** where a player competes against the computer by moving around the edges of a **10×10 board**. Each round both players roll a dice and advance along the perimeter of the board. Traps placed on the board can send players backwards.
+## Description
 
-The first participant to complete a loop around the board wins.
+This project is a console-based **Circle Game** written in **C**.
 
-This project was developed as part of my **Computer Engineering bachelor's coursework** to practice core C programming concepts such as memory management, pointers, and modular program design.
+The game is played between the user and the computer on a **10×10 board**. Only the outer perimeter of the board is used as the movement path. Both the player and the computer roll dice, move around the board edges, and try to complete a full loop before the other side.
 
----
+The game also includes trap locations. If a player lands on a trap, they move backward according to the trap value.
 
-## Features
+This project was written as a C programming exercise to practice:
 
-- 10×10 board representation
-- Movement restricted to the **perimeter path (36 cells)**
-- Random dice rolls for both the player and the computer
-- Player-defined trap placement
-- Random computer trap generation
-- Traps that move players backwards
-- Turn-based gameplay
-- Dynamic memory allocation
-- Input validation for trap placement
-- Replayable game loop
+* 2D arrays
+* Dynamic memory allocation
+* Pointers
+* Functions
+* Random number generation
+* Input validation
+* Console-based game logic
 
 ---
 
 ## Game Rules
 
-1. The board is a **10×10 grid**, but only the **outer perimeter** is used as the movement path.
-2. The **player starts at position (0,0)**.
-3. The **computer starts at position (9,9)**.
-4. Both participants roll a dice each round (**1–6**).
-5. Players move clockwise along the board edges.
-6. Each side places one trap:
-   - The **player selects a trap location**.
-   - The **computer trap is generated randomly**.
-7. Each trap has a randomly generated **backward movement value (1–5)**.
-8. If a player lands on a trap, they move **backwards along the path**.
-9. The first player to complete a full loop wins.
+1. The game uses a 10×10 board.
+2. Only the outer border of the board is used as the path.
+3. The player starts at position `(0, 0)`.
+4. The computer starts at position `(9, 9)`.
+5. At the beginning, both sides roll dice to decide who starts first.
+6. The player chooses a trap location on the board perimeter.
+7. The computer trap is generated randomly.
+8. Trap values are generated randomly between 1 and 5.
+9. In each round:
+
+   * The player rolls a dice.
+   * The computer rolls a dice.
+   * Both move along the board perimeter.
+10. If a side lands on its trap, it moves backward.
+11. The first side to complete the loop wins.
+12. After the game ends, the user can choose to play again.
 
 ---
+
+## Board Representation
+
+The program uses two separate 10×10 boards:
+
+* One board for the player
+* One board for the computer
+
+The board is dynamically allocated using pointers.
+
+Only the perimeter cells are active game positions. The inner cells are empty spaces.
+
+---
+
+## Board Symbols
+
+| Symbol      | Meaning                 |
+| ----------- | ----------------------- |
+| `P`         | Player position         |
+| `C`         | Computer position       |
+| `*`         | Trap location           |
+| `-`         | Empty perimeter cell    |
+| Empty space | Inner unused board area |
+
+---
+
+## Features
+
+* Console-based board game
+* 10×10 board representation
+* Movement along the perimeter of the board
+* Random dice rolls
+* Random computer trap placement
+* User-selected player trap placement
+* Random trap values
+* Trap logic that moves players backward
+* Turn-based gameplay
+* Winner detection
+* Replayable game loop
+* Dynamic memory allocation and memory cleanup
+
+---
+
+## Important Constants
+
+The program uses the following constants:
+
+```c
+#define BOARD_SIZE 10
+#define PATH_LENGTH 36
+```
+
+`BOARD_SIZE` represents the size of the board.
+
+`PATH_LENGTH` represents the number of perimeter movement positions around the 10×10 board.
+
+---
+
+## How to Run
+
+### Compile
+
+```bash
+gcc CircleGame.c -o circle_game
+```
+
+### Run
+
+On Linux/macOS:
+
+```bash
+./circle_game
+```
+
+On Windows PowerShell:
+
+```bash
+.\circle_game.exe
+```
+
+---
+
+## Input Requirements
+
+No external input file is required.
+
+The program takes input from the console.
+
+The user only needs to enter:
+
+* Trap row
+* Trap column
+* Whether they want to play again
+
+Trap input should be entered in this format:
+
+```text
+row column
+```
+
+Example:
+
+```text
+0 5
+```
+
+The trap must be placed on the outer perimeter of the board. It cannot be placed inside the board.
+
+---
+
+## Example Usage
+
+```text
+Welcome to the Circle Game! :)
+Let's get started!
+
+I have rolled the dice for you and you got 4!
+I have rolled the dice and got 2!
+
+----Player----
+Enter trap index (row col): 0 5
+Generated trap value: 3
+
+----Computer----
+Generated trap index (row col): 9 3
+Generated trap value: 2
+```
+
+After that, the game displays the player and computer boards and continues round by round.
+
+---
+
+
