@@ -8,16 +8,6 @@ The game is played between the user and the computer. In each round, both sides 
 
 The player with the highest total score after all rounds wins.
 
-This project was written as a C programming exercise to practice:
-
-* Functions
-* Loops
-* Conditional statements
-* Random number generation
-* User input
-* Game flow control
-* Score calculation
-
 ---
 
 ## Game Rules
