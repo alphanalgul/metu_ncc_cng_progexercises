@@ -6,16 +6,6 @@ This project is a simple **Instructor Record Manager** written in **C**.
 
 The program stores instructor names and academic titles using a **Binary Search Tree (BST)**. Instructor names are used as the search key, so the tree keeps records in lexicographical order.
 
-This project was written as a data structures exercise to practice:
-
-* Binary Search Trees
-* Structs
-* Pointers
-* Dynamic memory allocation
-* String comparison
-* Recursive tree traversal
-* Menu-driven console programs
-
 ---
 
 ## Program Behavior
