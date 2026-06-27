@@ -10,16 +10,6 @@ A player's turn continues until all five dice are removed. This situation is cal
 
 The player with the highest total score after all rounds wins.
 
-This project was written as a C programming exercise to practice:
-
-* Functions
-* Loops
-* Conditional statements
-* Random number generation
-* Score tracking
-* Turn-based game logic
-* Console-based user interaction
-
 ---
 
 ## Game Rules
