@@ -100,25 +100,3 @@ void Account::mortgageYear(float mortgageAmount, float mortgageInterest, float a
     std::cout << "Mortgage paid in " << years << " years using only interest from account.\n";
 }
 
-//If inputTransaction was not a member function of the class Account
-/*void inputTransaction(Account& acc) {
-    float current = acc.getaccountBalance();  // ✅ access via getter
-    std::cout << "Current balance is: " << current << " TL\n";
-
-    char type;
-    float amount;
-    std::cout << "Enter transaction type (D for deposit, W for withdraw): ";
-    std::cin >> type;
-    std::cout << "Enter amount: ";
-    std::cin >> amount;
-
-    if (type == 'D') {
-        acc.deposit(amount);
-    } else if (type == 'W') {
-        acc.withdraw(amount);
-    } else {
-        std::cout << "Invalid transaction type.\n";
-    }
-
-    std::cout << "New balance is: " << acc.getaccountBalance() << " TL\n";
-}*/
