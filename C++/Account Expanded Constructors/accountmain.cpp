@@ -2,7 +2,7 @@
 #include "account.h"
 using namespace std;
 int main() {
-    int choice;
+    int choice = 0;
     int accountNum;
     float accountBalance;
     Account a;
@@ -62,7 +62,20 @@ int main() {
         }
         if (choice == 6)
         {
+          float mortgageAmount;
+          float mortgageInterest;
+          float accountInterest;
 
+          std::cout << "\nEnter the mortgage amount: " << std::endl;
+          std::cin >> mortgageAmount;
+
+          std::cout << "\nEnter the mortgage interest rate: " << std::endl;
+          std::cin >> mortgageInterest;
+
+          std::cout << "\nEnter the account interest rate: " << std::endl;
+          std::cin >> accountInterest;
+
+    a.mortgageYear(mortgageAmount, mortgageInterest, accountInterest);
         }
         if (choice == 7)
         {
