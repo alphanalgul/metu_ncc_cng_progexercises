@@ -1,94 +1,42 @@
+#ifndef CPOLYGON_H
+#define CPOLYGON_H
+
 #include <iostream>
-#include <cstring>
+#include <string>
+
 using namespace std;
 
-class Person {
+class CPolygon {
 protected:
-    char* name;
+    int width;
+    int height;
+    static int counter;
+
 public:
-    Person() {
-        name = new char[20];
-        strcpy(name, "Not provided");
-        cout << "Person()" << endl;
+    CPolygon() {
+        width = 0;
+        height = 0;
+        counter++;
     }
 
-    Person(char* str) {
-        name = new char[20];
-        strcpy(name, str);
-        cout << "Person(char* str)" << endl;
+    void setup(int w, int h) {
+        width = w;
+        height = h;
     }
 
-    ~Person() {
-        delete[] name;
-        cout << "Person destructor" << endl;
+    virtual float area(void) = 0;
+
+    virtual string getName(void) = 0;
+
+    void onscreen(void) {
+        cout << getName() << " area: " << area() << endl;
+    }
+
+    static int getCounter(void) {
+        return counter;
     }
 };
 
-class Student : virtual public Person {
-protected:
-    int id;
-public:
-    Student() {
-        id = 0;
-        cout << "Student()" << endl;
-    }
+int CPolygon::counter = 0;
 
-    Student(char* str, int i) : Person(str) {
-        id = i;
-        cout << "Student(char* str, int i)" << endl;
-    }
-
-    ~Student() {
-        cout << "Student destructor" << endl;
-    }
-};
-
-class Academic : virtual public Person {
-protected:
-    int SSN;
-public:
-    Academic() {
-        SSN = 0;
-        cout << "Academic()" << endl;
-    }
-
-    Academic(char* str, int i) : Person(str) {
-        SSN = i;
-        cout << "Academic(char* str, int i)" << endl;
-    }
-
-    ~Academic() {
-        cout << "Academic destructor" << endl;
-    }
-};
-
-class StudentAcademic : public Student, public Academic {
-public:
-    StudentAcademic(char* str, int i, int j)
-        : Person(str), Student(str, i), Academic(str, j) {
-        cout << "StudentAcademic()" << endl;
-    }
-
-    void show() {
-        cout << "Name: " << name << endl;
-        cout << "ID: " << id << endl;
-        cout << "SSN: " << SSN << endl;
-    }
-
-    ~StudentAcademic() {
-        cout << "StudentAcademic destructor" << endl;
-    }
-};
-
-int main() {
-    cout << "CONSTRUCTORS CALLED TO A STUDENTACADEMIC OBJECT:" << endl;
-    StudentAcademic* S = new StudentAcademic("Zekican Budin", 8252192, 894161);
-
-    cout << endl << "THE STUDENTACADEMIC OBJECT:" << endl;
-    S->show();
-
-    cout << endl << "DESTRUCTORS CALLED DESTROY THE OBJECT:" << endl;
-    delete S;
-
-    return 0;
-}
+#endif
